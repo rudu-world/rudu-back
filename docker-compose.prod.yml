@@ -1,0 +1,47 @@
+version: "3.8"
+services:
+  app1:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    ports:
+      - "8082:8081"
+    container_name: app1
+    volumes:
+      - /app/node_modules
+    environment:
+      - NODE_ENV=production
+    command: yarn start
+
+  app2:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    ports:
+      - "8083:8081"
+    container_name: app2
+    volumes:
+      - /app/node_modules
+    environment:
+      - NODE_ENV=production
+    command: yarn start
+
+  app3:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    ports:
+      - "8084:8081"
+    container_name: app3
+    volumes:
+      - /app/node_modules
+    environment:
+      - NODE_ENV=production
+    command: yarn start
+
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - "3000:3000"
