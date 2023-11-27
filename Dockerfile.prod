@@ -17,6 +17,6 @@ WORKDIR /app
 COPY --from=builder /app/build ./build
 COPY package.json yarn.lock ./
 
-RUN yarn install --production
+RUN yarn install
 
 CMD ["node" "./build/index.js"]
