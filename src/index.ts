@@ -3,7 +3,7 @@ import "dotenv/config";
 import cors from "cors";
 import morgan from "morgan";
 
-const APP_PORT = 8081;
+const APP_PORT = process.env.PORT;
 
 const app = express();
 

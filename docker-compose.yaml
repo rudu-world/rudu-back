@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000-3005:${PORT}"
+
+    volumes:
+      - .:/app
+      - /app/node_modules
+
+    command: yarn dev
